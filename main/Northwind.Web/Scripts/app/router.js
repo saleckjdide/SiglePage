@@ -33,22 +33,9 @@ define(['kendo'],
         });
 
         router.route("/customer/edit/:id", function () {
-            require(['customerModelExtended', 'customerDatasource', 'text!/customer/edit'],
-                function (customerModelExtended, customerDatasource, view) {
-                    var viewModel = null;
-                    customerDatasource.read();
-                    customerDatasource.fetch(function () {
-                        if (customerDatasource.view().length > 0) {
-                            viewModel = customerDatasource.at(0);
-                            viewModel.set("datasource", function() {
-                                 return customerDatasource;
-                            });
-                        } else
-                            viewModel = new customerModelExtended();
-                    });
-
-                    loadView(viewModel, view);
-                });
+            require(['customer-editViewModel', 'text!/customer/edit'], function (viewModel, view) {
+                loadView(viewModel.loadData(), view);
+            });
         });
 
         var loadView = function (viewModel, view, delegate) {

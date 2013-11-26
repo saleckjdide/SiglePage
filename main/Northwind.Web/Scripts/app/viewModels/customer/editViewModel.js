@@ -2,20 +2,23 @@
 define(['customerModelExtended', 'customerDatasource'],
     function (customerModelExtended, customerDatasource) {
 
-        var editViewModel = null;
+        var editViewModel = {
+            loadData: function () {
+                var viewModel = null;
+                customerDatasource.read();
+                customerDatasource.fetch(function() {
+                    if (customerDatasource.view().length > 0) {
+                        viewModel = customerDatasource.at(0);
 
-        customerDatasource.read();
-
-        customerDatasource.fetch(function () {
-            if (customerDatasource.view().length > 0) {
-                editViewModel = customerDatasource.at(0);
-
-                editViewModel.set("datasource", function () {
-                    return customerDatasource;
+                        viewModel.set("datasource", function() {
+                            return customerDatasource;
+                        });
+                    } else
+                        viewModel = new customerModelExtended();
                 });
-            } else
-                editViewModel = new customerModelExtended();
-        });
+                return viewModel;
+            }
+        };
 
         return editViewModel;
     });
