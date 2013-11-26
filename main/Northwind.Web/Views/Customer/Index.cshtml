@@ -1,0 +1,48 @@
+﻿
+<div class="k-content" style="width: 100%">
+    <div id="grid"
+         data-role="grid"
+         data-sortable="true"
+         data-pageable="true"
+         data-filterable="true"
+         data-editable="inline"
+         data-selectable="true"
+         data-toolbar='[ { template: kendo.template($("#toolbar").html()) } ]'
+         data-columns='[
+                { field: "CustomerID", title: "ID", width: "100px" },
+                { field: "CompanyName", title: "Company"},
+                { field: "ContactName", title: "Contact" },
+                { field: "ContactTitle", title: "Title" },
+                { field: "Address" },
+                { field: "City" },
+                { field: "PostalCode" },
+                { field: "Country" },
+                { field: "Phone" },
+                { field: "Fax" } ]'
+         data-bind="source: dataSource, events: { change: onChange }">
+    </div>
+    <style scoped>
+        #grid .k-toolbar {
+            padding: 15px;
+        }
+
+        .toolbar {
+            float: right;
+        }
+    </style>
+</div>
+
+<script type="text/x-kendo-template" id="toolbar">
+    <div>
+        <div class="toolbar">
+            <a class="k-button" data-bind="click: edit"><span class="k-icon k-i-tick"></span>Edit</a>
+            <a class="k-button" data-bind="click: destroy"><span class="k-icon k-i-tick"></span>Delete</a>
+            <a class="k-button" data-bind="click: details"><span class="k-icon k-i-tick"></span>Edit Details</a>
+        </div>
+        <div class="toolbar" style="display:none">
+            <a class="k-button" data-bind="click: save"><span class="k-icon k-i-tick"></span>Save</a>
+            <a class="k-button" data-bind="click: cancel"><span class="k-icon k-i-tick"></span>Cancel</a>
+        </div>
+    </div>
+</script>
+
