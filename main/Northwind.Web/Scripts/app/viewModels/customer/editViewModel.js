@@ -13,7 +13,7 @@ define(['customersDatasource', 'customerModel', 'util'],
                         window.location.href = '#/customer/index';
                     },
                     cancel: function (s) {
-                        this.datasource().filter({});
+                        customerDatasource.filter({});
                         window.location.href = '#/customer/index';
                     }
                 });
