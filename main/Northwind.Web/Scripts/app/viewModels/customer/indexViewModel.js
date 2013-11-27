@@ -49,12 +49,25 @@ define(['kendo', 'customersDatasource'],
                     grid.dataSource.sync();
                 });
             },
-
-            dataSource: customersDatasource,
+            
             onChange: function (arg) {
                 var grid = arg.sender;
                 lastSelectedDataItem = grid.dataItem(grid.select());
-            }
+            },
+
+            dataSource: customersDatasource,
+
+            onDataBound: function (arg) {
+                if (lastSelectedDataItem == null) return; // check if there was a row that was selected
+                var view = this.dataSource.view(); // get all the rows
+                for (var i = 0; i < view.length; i++) { // iterate through rows
+                    if (view[i].CustomerID == lastSelectedDataItem.CustomerID) { // find row with the lastSelectedProductd
+                        var grid = arg.sender; // get the grid
+                        grid.select(grid.table.find("tr[data-uid='" + view[i].uid + "']")); // set the selected row
+                        break;
+                    }
+                }
+            },
         });
 
         return indexViewModel;

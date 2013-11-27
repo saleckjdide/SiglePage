@@ -19,7 +19,7 @@
                 { field: "Country" },
                 { field: "Phone" },
                 { field: "Fax" } ]'
-         data-bind="source: dataSource, events: { change: onChange }">
+         data-bind="source: dataSource, events: { change: onChange, dataBound: onDataBound }">
     </div>
     <style scoped>
         #grid .k-toolbar {
