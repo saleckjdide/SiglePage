@@ -7,8 +7,9 @@ define(['customersDatasource', 'customerModel', 'util'],
             loadData: function () {
                 var viewModel = new kendo.data.ObservableObject({
                     saveCustomer: function (s) {
-                        this.datasource().sync();
-                        this.datasource().filter({});
+                        customerDatasource.sync();
+                        
+                        customerDatasource.filter({});
                         window.location.href = '#/customer/index';
                     },
                     cancel: function (s) {
@@ -23,10 +24,6 @@ define(['customersDatasource', 'customerModel', 'util'],
                     console.log('editViewModel fetching');
                     if (customerDatasource.view().length > 0) {
                         viewModel.set("Customer", customerDatasource.at(0));
-
-                        viewModel.set("datasource", function () {
-                            return customerDatasource;
-                        });
                     } else
                         viewModel.set("Customer", new customerModel());
                 });

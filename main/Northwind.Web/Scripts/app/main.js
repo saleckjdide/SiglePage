@@ -15,7 +15,6 @@
         'customer-indexViewModel': '/scripts/app/viewmodels/customer/indexViewModel',
         'customer-editViewModel': '/scripts/app/viewmodels/customer/editViewModel',
         //datasources
-        'customerDatasource': '/scripts/app/datasources/customerDatasource',
         'customersDatasource': '/scripts/app/datasources/customersDatasource',
         // util
         'util': '/scripts/util'
