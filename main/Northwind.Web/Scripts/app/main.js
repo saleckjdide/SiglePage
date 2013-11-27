@@ -7,7 +7,6 @@
         'router': '/scripts/app/router',
         //models
         'customerModel': '/scripts/app/models/customerModel',
-        'customerModelExtended': '/scripts/app/models/customerModelExtended',
         //viewModels
         'home-indexViewModel': '/scripts/app/viewmodels/home/indexViewModel',
         'home-aboutViewModel': '/scripts/app/viewmodels/home/aboutViewModel',
