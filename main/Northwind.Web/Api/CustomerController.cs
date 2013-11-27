@@ -37,5 +37,12 @@ namespace Northwind.Web.Api
             _northwindContext.SaveChanges();
             return update;
         }
+
+        public override void Delete(string key)
+        {
+            var customer = _northwindContext.Customers.Find(key);
+            _northwindContext.Customers.Remove(customer);
+            _northwindContext.SaveChanges();
+        }
     }
 }

@@ -8,8 +8,8 @@
             getId:
             function () {
                 var array = window.location.href.split('/');
-                var customerId = array[array.length - 1];
-                return customerId;
+                var id = array[array.length - 1];
+                return id;
             }
         };
 

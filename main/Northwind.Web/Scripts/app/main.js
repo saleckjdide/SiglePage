@@ -8,14 +8,11 @@
         //models
         'customerModel': '/scripts/app/models/customerModel',
         //viewModels
-        'home-indexViewModel': '/scripts/app/viewmodels/home/indexViewModel',
-        'home-aboutViewModel': '/scripts/app/viewmodels/home/aboutViewModel',
-        'home-contactViewModel': '/scripts/app/viewmodels/home/contactViewModel',
         'customer-indexViewModel': '/scripts/app/viewmodels/customer/indexViewModel',
         'customer-editViewModel': '/scripts/app/viewmodels/customer/editViewModel',
         //datasources
         'customerDatasource': '/scripts/app/datasources/customerDatasource',
-        // util
+        // utils
         'util': '/scripts/util'
     },
     shim : { 
