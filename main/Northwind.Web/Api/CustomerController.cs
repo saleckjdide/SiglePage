@@ -1,45 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region
+
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
 using System.Web.Http.OData;
 using System.Web.Mvc;
 using Northwind.Data;
 using Northwind.Entity.Models;
 
+#endregion
+
 namespace Northwind.Web.Api
 {
-public class CustomerController : EntitySetController<Customer, string>
-{
-    private readonly NorthwindContext _northwindContext;
-
-    public CustomerController()
+    public class CustomerController : EntitySetController<Customer, string>
     {
-        _northwindContext = new NorthwindContext();
-    }
+        private readonly NorthwindContext _northwindContext;
 
-    public override IQueryable<Customer> Get()
-    {
-        return _northwindContext.Customers;
-    }
+        public CustomerController()
+        {
+            _northwindContext = new NorthwindContext();
+        }
 
-    protected override Customer GetEntityByKey(string key)
-    {
-        return _northwindContext.Customers.Find(key);
-    }
+        public override IQueryable<Customer> Get()
+        {
+            return _northwindContext.Customers;
+        }
 
-    protected override Customer UpdateEntity(string key, Customer update)
-    {
-        if (ModelState.IsValid)
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
+        protected override Customer GetEntityByKey(string key)
+        {
+            return _northwindContext.Customers.Find(key);
+        }
+
+        protected override Customer UpdateEntity(string key, Customer update)
         {
             _northwindContext.Customers.AddOrUpdate(update);
             _northwindContext.SaveChanges();
+            return update;
         }
-
-        return update;
     }
-}
 }

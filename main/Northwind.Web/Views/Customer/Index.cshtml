@@ -1,15 +1,16 @@
 ﻿
-<div class="k-content" style="width: 100%">
-    <div id="grid"
-         data-role="grid"
-         data-sortable="true"
-         data-pageable="true"
-         data-filterable="true"
-         data-editable="inline"
-         data-selectable="true"
-         data-toolbar='[ { template: kendo.template($("#toolbar").html()) } ]'
-         data-columns='[
-                { field: "CustomerID", title: "ID", width: "100px" },
+<div class="demo-section">
+    <div class="k-content" style="width: 100%">
+        <div id="grid"
+             data-role="grid"
+             data-sortable="true"
+             data-pageable="true"
+             data-filterable="true"
+             data-editable="inline"
+             data-selectable="true"
+             data-toolbar='[ { template: kendo.template($("#toolbar").html()) } ]'
+             data-columns='[
+                { field: "CustomerID", title: "ID", width: "75px" },
                 { field: "CompanyName", title: "Company"},
                 { field: "ContactName", title: "Contact" },
                 { field: "ContactTitle", title: "Title" },
@@ -19,9 +20,9 @@
                 { field: "Country" },
                 { field: "Phone" },
                 { field: "Fax" } ]'
-         data-bind="source: dataSource, events: { change: onChange, dataBound: onDataBound }">
-    </div>
-    <style scoped>
+             data-bind="source: dataSource, events: { change: onChange, dataBound: onDataBound }">
+        </div>
+        <style scoped>
         #grid .k-toolbar {
             padding: 15px;
         }
@@ -30,6 +31,7 @@
             float: right;
         }
     </style>
+    </div>
 </div>
 
 <script type="text/x-kendo-template" id="toolbar">
@@ -45,4 +47,3 @@
         </div>
     </div>
 </script>
-

@@ -58,6 +58,7 @@ define(['kendo', 'customersDatasource'],
             dataSource: customersDatasource,
 
             onDataBound: function (arg) {
+                console.log('customersDatasource onDataBounding');
                 if (lastSelectedDataItem == null) return; // check if there was a row that was selected
                 var view = this.dataSource.view(); // get all the rows
                 for (var i = 0; i < view.length; i++) { // iterate through rows

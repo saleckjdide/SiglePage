@@ -1,24 +1,38 @@
 ﻿
-define(['customerModelExtended', 'customerDatasource'],
-    function (customerModelExtended, customerDatasource) {
+define(['customersDatasource', 'customerModel', 'util'],
+    function (customerDatasource, customerModel, util) {
 
-        var editViewModel = {
+        var editViewModel = new kendo.data.ObservableObject({
+
             loadData: function () {
-                var viewModel = null;
-                customerDatasource.read();
-                customerDatasource.fetch(function() {
-                    if (customerDatasource.view().length > 0) {
-                        viewModel = customerDatasource.at(0);
+                var viewModel = new kendo.data.ObservableObject({
+                    saveCustomer: function (s) {
+                        this.datasource().sync();
+                        this.datasource().filter({});
+                        window.location.href = '#/customer/index';
+                    },
+                    cancel: function (s) {
+                        this.datasource().filter({});
+                        window.location.href = '#/customer/index';
+                    }
+                });
 
-                        viewModel.set("datasource", function() {
+                customerDatasource.filter({ field: "CustomerID", operator: "equals", value: util.getId() });
+                
+                customerDatasource.fetch(function () {
+                    console.log('editViewModel fetching');
+                    if (customerDatasource.view().length > 0) {
+                        viewModel.set("Customer", customerDatasource.at(0));
+
+                        viewModel.set("datasource", function () {
                             return customerDatasource;
                         });
                     } else
-                        viewModel = new customerModelExtended();
+                        viewModel.set("Customer", new customerModel());
                 });
                 return viewModel;
-            }
-        };
+            },
+        });
 
         return editViewModel;
     });

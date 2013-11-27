@@ -6,6 +6,7 @@
             type: "odata",
             transport: {
                 read: {
+                    async: false,
                     url: crudServiceBaseUrl,
                     dataType: "json"
                 },
