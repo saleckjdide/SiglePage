@@ -1,5 +1,5 @@
 ﻿
-define(['customersDatasource', 'customerModel', 'util'],
+define(['customerDatasource', 'customerModel', 'util'],
     function (customerDatasource, customerModel, util) {
 
         var editViewModel = new kendo.data.ObservableObject({

@@ -1,6 +1,6 @@
 ﻿
-define(['kendo', 'customersDatasource'],
-    function (kendo, customersDatasource) {
+define(['kendo', 'customerDatasource'],
+    function (kendo, customerDatasource) {
         var lastSelectedDataItem = null;
 
         var onClick = function (event, delegate) {
@@ -55,7 +55,7 @@ define(['kendo', 'customersDatasource'],
                 lastSelectedDataItem = grid.dataItem(grid.select());
             },
 
-            dataSource: customersDatasource,
+            dataSource: customerDatasource,
 
             onDataBound: function (arg) {
                 console.log('customersDatasource onDataBounding');
