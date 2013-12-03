@@ -12,6 +12,12 @@ define(['kendo'],
             });
         });
 
+        router.route("/home/index", function () {
+            require(['text!/home/index'], function (view) {
+                loadView(null, view);
+            });
+        });
+
         router.route("/home/about", function () {
             require(['text!/home/about'], function (view) {
                 loadView(null, view);
