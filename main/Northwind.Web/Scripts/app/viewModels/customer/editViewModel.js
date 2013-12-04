@@ -18,7 +18,11 @@ define(['customerDatasource', 'customerModel', 'util'],
                     }
                 });
 
-                customerDatasource.filter({ field: "CustomerID", operator: "equals", value: util.getId() });
+                customerDatasource.filter({
+                    field: "CustomerID",
+                    operator: "equals",
+                    value: util.getId()
+                });
                 
                 customerDatasource.fetch(function () {
                     console.log('editViewModel fetching');
