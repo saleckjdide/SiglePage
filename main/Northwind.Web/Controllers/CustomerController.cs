@@ -6,21 +6,16 @@ using System.Web.Mvc;
 
 namespace Northwind.Web.Controllers
 {
-public class CustomerController : Controller
-{
-    //
-    // GET: /Customer/
-    public ActionResult Index()
+    public class CustomerController : Controller
     {
-        return View();
-    }
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-
-    //
-    // GET: /Customer/Edit/5
-    public ActionResult Edit()
-    {
-        return View();
+        public ActionResult Edit()
+        {
+            return View();
+        }
     }
-}
 }

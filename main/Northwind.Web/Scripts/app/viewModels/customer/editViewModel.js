@@ -1,20 +1,18 @@
 ﻿
-define(['customerDatasource', 'customerModel', 'util'],
-    function (customerDatasource, customerModel, util) {
+define(['customerDatasource', 'customerModel', 'util', 'router'],
+    function(customerDatasource, customerModel, util, router) {
 
         var editViewModel = new kendo.data.ObservableObject({
-
-            loadData: function () {
+            loadData: function() {
                 var viewModel = new kendo.data.ObservableObject({
-                    saveCustomer: function (s) {
+                    saveCustomer: function(s) {
                         customerDatasource.sync();
-                        
                         customerDatasource.filter({});
-                        window.location.href = '#/customer/index';
+                        router.navigate('/customer/index');
                     },
-                    cancel: function (s) {
+                    cancel: function(s) {
                         customerDatasource.filter({});
-                        window.location.href = '#/customer/index';
+                        router.navigate('/customer/index');
                     }
                 });
 
@@ -23,9 +21,8 @@ define(['customerDatasource', 'customerModel', 'util'],
                     operator: "equals",
                     value: util.getId()
                 });
-                
-                customerDatasource.fetch(function () {
-                    console.log('editViewModel fetching');
+
+                customerDatasource.fetch(function() {
                     if (customerDatasource.view().length > 0) {
                         viewModel.set("Customer", customerDatasource.at(0));
                     } else

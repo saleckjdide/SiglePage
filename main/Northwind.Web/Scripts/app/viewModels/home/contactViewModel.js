@@ -1,5 +1,5 @@
 ﻿define(['kendo'],
-    function (kendo) {
+    function(kendo) {
 
         var contactViewModel = new kendo.observable(
             {

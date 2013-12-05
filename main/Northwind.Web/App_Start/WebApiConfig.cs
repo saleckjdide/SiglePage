@@ -16,7 +16,7 @@ namespace Northwind.Web
 
             ODataModelBuilder modelBuilder = new ODataConventionModelBuilder();
 
-            var customerEntitySetConfiguration = 
+            var customerEntitySetConfiguration =
                 modelBuilder.EntitySet<Customer>("Customer");
 
             customerEntitySetConfiguration.EntityType.Ignore(t => t.Orders);
@@ -31,7 +31,7 @@ namespace Northwind.Web
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                "DefaultApi", "api/{controller}/{id}", 
+                "DefaultApi", "api/{controller}/{id}",
                 new {id = RouteParameter.Optional});
         }
     }

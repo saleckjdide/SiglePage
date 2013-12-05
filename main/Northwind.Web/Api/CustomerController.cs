@@ -3,7 +3,6 @@
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web.Http.OData;
-using System.Web.Mvc;
 using Northwind.Data;
 using Northwind.Entity.Models;
 
@@ -25,7 +24,6 @@ namespace Northwind.Web.Api
             return _northwindContext.Customers;
         }
 
-        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
         protected override Customer GetEntityByKey(string key)
         {
             return _northwindContext.Customers.Find(key);

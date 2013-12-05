@@ -1,5 +1,5 @@
 ﻿define(['kendo'],
-    function (kendo) {
+    function(kendo) {
         var customerModel = kendo.data.Model.define({
             id: "CustomerID",
             fields: {

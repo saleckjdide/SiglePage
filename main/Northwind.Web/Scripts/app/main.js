@@ -15,16 +15,16 @@
         // utils
         'util': '/scripts/util'
     },
-    shim : { 
-        'kendo' : ['jquery']
+    shim: {
+        'kendo': ['jquery']
     },
     priority: ['text', 'router', 'app'],
-    jquery: '2.0.3', 
+    jquery: '2.0.3',
     waitSeconds: 30
 });
 
 require([
-  'app'
-], function (app) {
-    app.initialize();
-});
+        'app'
+    ], function(app) {
+        app.initialize();
+    });
