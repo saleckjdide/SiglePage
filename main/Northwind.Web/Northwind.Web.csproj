@@ -333,6 +333,7 @@
     <Content Include="Scripts\app\viewModels\home\indexViewModel.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Data\Northwind.bak" />
     <None Include="Properties\PublishProfiles\easyspa.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
