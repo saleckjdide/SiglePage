@@ -40,10 +40,17 @@
                 model: customerModel
             },
             error: function(e) {
-                debugger;
-                var message = e.xhr.responseJSON["odata.error"].message.value;
-                var innerMessage = e.xhr.responseJSON["odata.error"].innererror.message;
-                alert(message + "\n\n" + innerMessage);
+                if (e.errors) {
+                    var message = "Errors:\n";
+                    $.each(e.errors, function(key, value) {
+                        if ('errors' in value) {
+                            $.each(value.errors, function() {
+                                message += this + "\n";
+                            });
+                        }
+                    });
+                    alert(message);
+                }
             }
         });
 
