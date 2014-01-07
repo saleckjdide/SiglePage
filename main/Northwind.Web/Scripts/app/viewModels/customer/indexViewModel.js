@@ -1,6 +1,6 @@
 ﻿
-define(['kendo', 'customerDatasource'],
-    function(kendo, customerDatasource) {
+define(['kendo', 'customerDatasource', 'router'],
+    function(kendo, customerDatasource, router) {
         var lastSelectedDataItem = null;
 
         var onClick = function(event, delegate) {
